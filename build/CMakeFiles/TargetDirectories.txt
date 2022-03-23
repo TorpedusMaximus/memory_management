@@ -1,0 +1,8 @@
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/example1.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/example2.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/example3.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/example4.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/example5.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/example6.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/edit_cache.dir
+/home/tabaluga/CLionProjects/memory_management/build/CMakeFiles/rebuild_cache.dir

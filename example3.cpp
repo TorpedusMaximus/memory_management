@@ -1,45 +1,53 @@
 #include <iostream>
 #include <stdexcept>
 
-void validateArguments(int argc)
-{
-    if(argc != 2)
-    {
+class MojError : public std::logic_error {
+private:
+    const char *tekst;
+public:
+    explicit MojError(const char *tekst) : std::logic_error(tekst) {
+        this->tekst = tekst;
+    }
+};
+
+void validateArguments(int argc) {
+    if (argc != 2) {
         std::cerr << "You need to pass 1 argument" << std::endl;
         exit(-1);
     }
 }
 
-class Resource
-{
+class Resource {
+private:
+    const char *arg;
 public:
-    void use(const char* arg)
-    {
+    void use(const char *arg) {
         std::cout << "Using resource. Passed " << *arg << std::endl;
-        if (*arg == 'd')
-        {
-            throw std::logic_error("Passed d. d is prohibited.");
+        if (*arg == 'd') {
+            throw MojError("Passed d. d is prohibited.");
         }
     }
+
+    ~Resource() {
+        delete arg;
+    }
+
 };
 
 int main(int argc, char* argv[])
 {
     validateArguments(argc);
-
     const char* argument = argv[1];
-    Resource* rsc = nullptr;
 
+    Resource *rsc = new Resource();
     try
     {
-        rsc = new Resource();
         rsc->use(argument);
-        delete rsc;
     }
-    catch (std::logic_error& e)
-    {
+    catch (MojError &e) {
         std::cout << e.what() << std::endl;
     }
+    delete rsc;
     return 0;
 }
 

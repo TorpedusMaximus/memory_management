@@ -24,13 +24,11 @@ public:
 
 int main()
 {
-    try
-    {
-        MyPointer pointerTest;
+    MyPointer pointerTest;
+    try {
         std::cout << pointerTest.pointer << std::endl;
     }
-    catch(std::runtime_error const& p_err)
-    {
+    catch (std::runtime_error const &p_err) {
         std::cout << "Ups: " << p_err.what() << std::endl;
     }
 }

@@ -10,9 +10,11 @@ void foo()
 class MyPointer
 {
 public:
-    MyPointer(): pointer(new int(15))
-    {
+    MyPointer() try: pointer(new int(15)) {
         foo();
+    }
+    catch (std::runtime_error const &p_err) {
+        delete pointer;
     }
 
     ~MyPointer()
@@ -24,8 +26,8 @@ public:
 
 int main()
 {
-    MyPointer pointerTest;
     try {
+        MyPointer pointerTest;
         std::cout << pointerTest.pointer << std::endl;
     }
     catch (std::runtime_error const &p_err) {
